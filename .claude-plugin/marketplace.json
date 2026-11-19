@@ -6,7 +6,7 @@
   },
   "metadata": {
     "description": "Open-source project manager skills for Claude and Codex",
-    "version": "0.1.1"
+    "version": "0.1.2"
   },
   "plugins": [
     {
