@@ -1,0 +1,8 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "project-manager-skills",
+  "version": "0.1.0",
+  "description": "Project manager skills for Claude Code, Cowork and Codex: meeting minutes, meeting agendas, decision log, action items, RAID log, status reports, 1:1s, skip-level meetings, standups, retrospectives, morning brief, project charter, team charter, change control, RACI matrix, stakeholder map and lessons learned. The skills share one folder of Markdown records.",
+  "homepage": "https://github.com/numal-ai/project-manager-skills",
+  "license": "MIT"
+}

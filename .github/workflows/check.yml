@@ -1,0 +1,16 @@
+# Checks every push and pull request: skill names and descriptions,
+# the plugin list and the README links. Builds the ZIPs to be sure they build.
+name: Check
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Check the skills and build the ZIPs
+        run: python3 scripts/build_zips.py
