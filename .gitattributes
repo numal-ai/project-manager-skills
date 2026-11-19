@@ -1,0 +1,3 @@
+# GitHub language bar: the skills are Markdown, the build script is not what the repo is
+*.md linguist-detectable=true
+scripts/** linguist-detectable=false
