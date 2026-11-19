@@ -6,203 +6,166 @@
   },
   "metadata": {
     "description": "Open-source project manager skills for Claude and Codex",
-    "version": "0.1.0"
+    "version": "0.1.1"
   },
   "plugins": [
     {
       "name": "project-manager-skills",
       "description": "Project manager skills for Claude Code, Cowork and Codex: meeting minutes, meeting agendas, decision log, action items, RAID log, status reports, 1:1s, skip-level meetings, standups, retrospectives, morning brief, project charter, team charter, change control, RACI matrix, stakeholder map and lessons learned. The skills share one folder of Markdown records.",
       "source": "./",
-      "strict": false,
-      "skills": [
-        "./skills/meeting-minutes",
-        "./skills/meeting-agenda",
-        "./skills/decision-log",
-        "./skills/action-items",
-        "./skills/raid-log",
-        "./skills/status-report",
-        "./skills/one-on-one",
-        "./skills/standup",
-        "./skills/retrospective",
-        "./skills/morning-brief",
-        "./skills/project-charter",
-        "./skills/change-control",
-        "./skills/raci-matrix",
-        "./skills/stakeholder-map",
-        "./skills/lessons-learned",
-        "./skills/team-charter",
-        "./skills/skip-level-meeting"
-      ],
       "category": "productivity"
     },
     {
       "name": "meeting-minutes",
       "description": "Meeting minutes from a transcript or notes: decisions accepted and not accepted, action items with owners and dates, risks, open questions and a recap message.",
-      "source": "./",
-      "strict": false,
+      "source": "./skills/meeting-minutes",
       "category": "productivity",
       "skills": [
-        "./skills/meeting-minutes"
+        "."
       ]
     },
     {
       "name": "meeting-agenda",
       "description": "Meeting agendas built from what is still open: overdue actions, decisions due for a revisit, risks and leftovers. Each item has an outcome, a lead and a time box.",
-      "source": "./",
-      "strict": false,
+      "source": "./skills/meeting-agenda",
       "category": "productivity",
       "skills": [
-        "./skills/meeting-agenda"
+        "."
       ]
     },
     {
       "name": "decision-log",
       "description": "A decision log: records decisions with who decided and why, finds past ones with their source, flags contradictions and decisions due for a revisit.",
-      "source": "./",
-      "strict": false,
+      "source": "./skills/decision-log",
       "category": "productivity",
       "skills": [
-        "./skills/decision-log"
+        "."
       ]
     },
     {
       "name": "action-items",
       "description": "One action list across meetings: owners, due dates, what is overdue and polite follow-ups. Creates tracker tickets with the meeting context after you confirm.",
-      "source": "./",
-      "strict": false,
+      "source": "./skills/action-items",
       "category": "productivity",
       "skills": [
-        "./skills/action-items"
+        "."
       ]
     },
     {
       "name": "raid-log",
       "description": "A RAID log and risk register: risks, assumptions, issues and dependencies, each with an owner, a mitigation and a weekly review of what changed.",
-      "source": "./",
-      "strict": false,
+      "source": "./skills/raid-log",
       "category": "productivity",
       "skills": [
-        "./skills/raid-log"
+        "."
       ]
     },
     {
       "name": "status-report",
       "description": "Weekly project status reports with an honest RAG status, built from the record. Also rolls several projects up into one page.",
-      "source": "./",
-      "strict": false,
+      "source": "./skills/status-report",
       "category": "productivity",
       "skills": [
-        "./skills/status-report"
+        "."
       ]
     },
     {
       "name": "one-on-one",
       "description": "1:1 prep and notes with your reports or your manager, kept in a private running doc per person.",
-      "source": "./",
-      "strict": false,
+      "source": "./skills/one-on-one",
       "category": "productivity",
       "skills": [
-        "./skills/one-on-one"
+        "."
       ]
     },
     {
       "name": "standup",
       "description": "Async standup summaries with blockers first and who can unblock them, plus work that has not moved.",
-      "source": "./",
-      "strict": false,
+      "source": "./skills/standup",
       "category": "productivity",
       "skills": [
-        "./skills/standup"
+        "."
       ]
     },
     {
       "name": "retrospective",
       "description": "Sprint retrospectives, project post-mortems and lessons learned, grounded in what happened, ending with a few owned actions.",
-      "source": "./",
-      "strict": false,
+      "source": "./skills/retrospective",
       "category": "productivity",
       "skills": [
-        "./skills/retrospective"
+        "."
       ]
     },
     {
       "name": "morning-brief",
       "description": "A one-page morning brief: what needs you today to decide, unblock or do, plus prep for today's meetings. Read-only.",
-      "source": "./",
-      "strict": false,
+      "source": "./skills/morning-brief",
       "category": "productivity",
       "skills": [
-        "./skills/morning-brief"
+        "."
       ]
     },
     {
       "name": "project-charter",
       "description": "Project charter from a kickoff transcript or notes: goal, measurable success criteria, scope in and out, milestones, who approves changes, plus seed rows for the RAID log, decisions and actions.",
-      "source": "./",
-      "strict": false,
+      "source": "./skills/project-charter",
       "category": "productivity",
       "skills": [
-        "./skills/project-charter"
+        "."
       ]
     },
     {
       "name": "change-control",
       "description": "Scope change control: change requests with the impact on scope, dates, budget, people and risks, a change log, and plan updates after the owner decides.",
-      "source": "./",
-      "strict": false,
+      "source": "./skills/change-control",
       "category": "productivity",
       "skills": [
-        "./skills/change-control"
+        "."
       ]
     },
     {
       "name": "raci-matrix",
       "description": "RACI matrix from the charter, actions and decisions: one accountable person per row, gaps and bottlenecks flagged, and answers to who decides on what.",
-      "source": "./",
-      "strict": false,
+      "source": "./skills/raci-matrix",
       "category": "productivity",
       "skills": [
-        "./skills/raci-matrix"
+        "."
       ]
     },
     {
       "name": "stakeholder-map",
       "description": "Stakeholder map and communication plan: interest and influence, what each person needs to hear, how and how often, and who needs to hear about a change.",
-      "source": "./",
-      "strict": false,
+      "source": "./skills/stakeholder-map",
       "category": "productivity",
       "skills": [
-        "./skills/stakeholder-map"
+        "."
       ]
     },
     {
       "name": "lessons-learned",
       "description": "Lessons learned register and closure report: lessons from retros and reviews with sources, what came of past decisions, and matching lessons for a new project.",
-      "source": "./",
-      "strict": false,
+      "source": "./skills/lessons-learned",
       "category": "productivity",
       "skills": [
-        "./skills/lessons-learned"
+        "."
       ]
     },
     {
       "name": "team-charter",
       "description": "Team charter and working agreements: what the team is for and owns, how it decides, its agreements and meetings, kept true at each retro.",
-      "source": "./",
-      "strict": false,
+      "source": "./skills/team-charter",
       "category": "productivity",
       "skills": [
-        "./skills/team-charter"
+        "."
       ]
     },
     {
       "name": "skip-level-meeting",
       "description": "Skip-level meeting prep and private notes, themes across a round without names, and what to take back to the lead.",
-      "source": "./",
-      "strict": false,
+      "source": "./skills/skip-level-meeting",
       "category": "productivity",
       "skills": [
-        "./skills/skip-level-meeting"
+        "."
       ]
     }
   ]

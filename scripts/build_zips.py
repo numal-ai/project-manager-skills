@@ -30,6 +30,8 @@ ROOT = Path(__file__).resolve().parent.parent
 SKILLS_DIR = ROOT / "skills"
 DIST_DIR = ROOT / "dist"
 MARKETPLACE = ROOT / ".claude-plugin" / "marketplace.json"
+CLAUDE_PLUGIN = ROOT / ".claude-plugin" / "plugin.json"
+CODEX_PLUGIN = ROOT / "plugin.json"
 README = ROOT / "README.md"
 
 COLLECTION = "project-manager-skills"
@@ -148,31 +150,40 @@ def check_skills() -> tuple[list[str], list[str], list[str]]:
 
 
 def check_marketplace(names: list[str], errors: list[str]) -> None:
-    """Every skill is in the full plugin and has a plugin of its own."""
+    """The full set is the plugin at the root; every skill also has a plugin of its own.
+
+    The full set loads every folder in skills/ through .claude-plugin/plugin.json, which
+    Anthropic's plugin directory needs. Each single-skill plugin points at its own skill
+    folder, so it never picks up that plugin.json or the other skills.
+    """
     try:
         data = json.loads(MARKETPLACE.read_text(encoding="utf-8"))
+        manifest = json.loads(CLAUDE_PLUGIN.read_text(encoding="utf-8"))
+        codex = json.loads(CODEX_PLUGIN.read_text(encoding="utf-8"))
     except (OSError, ValueError) as exc:
-        errors.append(f".claude-plugin/marketplace.json: {exc}")
+        errors.append(f"plugin files: {exc}")
         return
     plugins = {p.get("name"): p for p in data.get("plugins", [])}
+
+    if manifest.get("name") != COLLECTION:
+        errors.append(f".claude-plugin/plugin.json: name must be {COLLECTION}")
+    if manifest.get("version") != codex.get("version"):
+        errors.append(".claude-plugin/plugin.json and plugin.json must have the same version")
 
     full = plugins.get(COLLECTION)
     if full is None:
         errors.append(f".claude-plugin/marketplace.json: no plugin named {COLLECTION}")
-    else:
-        listed = {Path(s).name for s in full.get("skills", [])}
-        for name in names:
-            if name not in listed:
-                errors.append(f".claude-plugin/marketplace.json: {COLLECTION} doesn't list ./skills/{name}")
-        for extra in sorted(listed - set(names)):
-            errors.append(f".claude-plugin/marketplace.json: {COLLECTION} lists ./skills/{extra}, which doesn't exist")
+    elif full.get("source") != "./" or "skills" in full:
+        errors.append(f".claude-plugin/marketplace.json: {COLLECTION} must be source ./ with no skills list (plugin.json loads skills/)")
 
     for name in names:
         single = plugins.get(name)
         if single is None:
             errors.append(f".claude-plugin/marketplace.json: no plugin of its own for {name}")
-        elif single.get("skills") != [f"./skills/{name}"]:
-            errors.append(f".claude-plugin/marketplace.json: plugin {name} must list exactly ./skills/{name}")
+        elif single.get("source") != f"./skills/{name}" or single.get("skills") != ["."]:
+            errors.append(f".claude-plugin/marketplace.json: plugin {name} must be source ./skills/{name} with skills [\".\"]")
+    for extra in sorted(set(plugins) - set(names) - {COLLECTION}):
+        errors.append(f".claude-plugin/marketplace.json: plugin {extra} has no folder in skills/")
 
 
 def check_readme(names: list[str], errors: list[str]) -> None:

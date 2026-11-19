@@ -2,6 +2,8 @@
 
 Seventeen open-source project manager skills for **Claude Code**, **Claude Cowork**, **claude.ai** and **OpenAI Codex**: meeting minutes, meeting agendas, a decision log, action items, a RAID log, status reports, 1:1s, skip-level meetings, standups, retrospectives, a morning brief, a project charter, a team charter, change control, a RACI matrix, a stakeholder map with a communication plan, and a lessons learned register.
 
+![A meeting transcript becomes minutes, a decision log and action items. Then the agenda for the next meeting opens with what this one left open.](assets/demo.gif)
+
 They are written for project managers, and they work just as well for team leads, engineering managers and product managers who run meetings and keep projects on track. Any agent that reads the open [Agent Skills](https://agentskills.io) format can use them.
 
 The skills share one folder of plain Markdown files. Whatever a meeting decides shows up in the next agenda, the Friday status report and tomorrow's morning brief, without you copying anything between them.
@@ -21,6 +23,7 @@ how we work ──► team-charter ─────► TEAM.md ─────►
 
 1. Get the skills:
    - **Claude Code:** `/plugin install project-manager-skills --marketplace numal-ai/project-manager-skills`
+   - **Codex, Cursor, GitHub Copilot and other agents:** `npx skills add numal-ai/project-manager-skills`
    - **claude.ai or Claude Cowork:** download the [starter pack](https://github.com/numal-ai/project-manager-skills/releases/latest/download/project-manager-skills-starter.zip) and unzip it. Upload the three skill ZIPs inside it in **Customize → Skills**.
 2. Paste the notes or the transcript of your last meeting and say: `Write minutes from this meeting.`
 3. Then say: `Prep the agenda for our next meeting.`
@@ -185,6 +188,20 @@ git clone https://github.com/numal-ai/project-manager-skills
 cp -R project-manager-skills/skills/meeting-minutes ~/.claude/skills/
 ```
 
+### Any agent, one command
+
+The open [skills](https://github.com/vercel-labs/skills) installer puts the skills where your agent looks for them: Claude Code, Codex, Cursor, GitHub Copilot, Gemini CLI and many others. It asks which agents and which skills.
+
+```bash
+npx skills add numal-ai/project-manager-skills
+```
+
+One skill only:
+
+```bash
+npx skills add numal-ai/project-manager-skills --skill meeting-minutes
+```
+
 ### claude.ai and Claude Cowork
 
 Download a ready ZIP from the [latest release](https://github.com/numal-ai/project-manager-skills/releases/latest):
@@ -252,22 +269,22 @@ Formats and rules are in [docs/workspace.md](docs/workspace.md). In short:
 
 If you'd rather fill a template by hand, these are copy-paste versions of the same formats:
 
-- [meeting recap](https://numal.ai/templates/meeting-recap)
-- [decision log](https://numal.ai/templates/decision-log)
-- [action items](https://numal.ai/templates/action-items)
-- [RAID log](https://numal.ai/templates/raid-log)
-- [project status report](https://numal.ai/templates/project-status-report)
-- [one-on-one meeting](https://numal.ai/templates/one-on-one-meeting)
+- [meeting recap](https://numal.ai/templates/meeting-recap?utm_source=github&utm_medium=readme&utm_campaign=project-manager-skills&utm_content=templates)
+- [decision log](https://numal.ai/templates/decision-log?utm_source=github&utm_medium=readme&utm_campaign=project-manager-skills&utm_content=templates)
+- [action items](https://numal.ai/templates/action-items?utm_source=github&utm_medium=readme&utm_campaign=project-manager-skills&utm_content=templates)
+- [RAID log](https://numal.ai/templates/raid-log?utm_source=github&utm_medium=readme&utm_campaign=project-manager-skills&utm_content=templates)
+- [project status report](https://numal.ai/templates/project-status-report?utm_source=github&utm_medium=readme&utm_campaign=project-manager-skills&utm_content=templates)
+- [one-on-one meeting](https://numal.ai/templates/one-on-one-meeting?utm_source=github&utm_medium=readme&utm_campaign=project-manager-skills&utm_content=templates)
 
 ## Made by Numal
 
-These skills do by hand what [Numal](https://numal.ai) does on its own. After every team call, Numal:
+These skills do by hand what [Numal](https://numal.ai/?utm_source=github&utm_medium=readme&utm_campaign=project-manager-skills&utm_content=made-by) does on its own. After every team call, Numal:
 
 - records the decisions;
 - puts the context into the right tracker tasks once you approve;
 - prepares the next agenda and each manager's morning brief, across all of a company's teams.
 
-If pasting transcripts gets old, [request access](https://numal.ai).
+If pasting transcripts gets old, [request access](https://numal.ai/?utm_source=github&utm_medium=readme&utm_campaign=project-manager-skills&utm_content=request-access).
 
 ## Contributing
 
